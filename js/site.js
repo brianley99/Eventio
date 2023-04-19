@@ -134,6 +134,8 @@ function displayEventData(currentEvents) {
         tableRow.querySelector('[data-id="attendance"]').textContent = event.attendance;
         tableRow.querySelector('[data-id="date"]').textContent = new Date(event.date).toLocaleDateString();
 
+        tableRow.querySelector('tr').setAttribute('data-event', event.id);
+
         eventTable.appendChild(tableRow);
     };
 }
@@ -201,14 +203,28 @@ function displayStats(currentEvents) {
 function getEventData() {
     //Gets all current event data from local database
 
-    //Get data from local database. Create one if needed
     let data = localStorage.getItem('nerdNookData');
+
     if (data == null) {
-        localStorage.getItem('nerdNookData', JSON.stringify(data))
+
+        let identifiedEvents = events.map(event => {
+            event.id = generateId();
+            return event;
+        });
+
+        localStorage.setItem('nerdNookData', JSON.stringify(identifiedEvents));
+        data = localStorage.getItem('nerdNookData');
     };
 
-    //Return data as an array of objects
-    let currentEvents = data === null ? events : JSON.parse(data);
+    let currentEvents = JSON.parse(data);
+
+    if (currentEvents.some(event => event.id == undefined)) {
+
+        currentEvents.forEach(event => event.id = generateId());
+
+        localStorage.setItem('nerdNookData', JSON.stringify(currentEvents));
+    };
+
     return currentEvents;
 }
 
@@ -252,7 +268,6 @@ function saveNewEvent() {
     let city = document.getElementById('newEventCity').value;
 
     let attendance = parseInt(document.getElementById('newEventAttendance').value);
-    attendance = attendance.toLocaleString();
 
     let date = document.getElementById('newEventDate').value;
     date = new Date(date).toLocaleDateString();
@@ -268,6 +283,7 @@ function saveNewEvent() {
         state: state,
         attendance: attendance,
         date: date,
+        id: generateId(),
     };
 
     //add event to the array of the current events
@@ -277,5 +293,103 @@ function saveNewEvent() {
     //then, save the array with the new event
     localStorage.setItem('nerdNookData', JSON.stringify(events));
 
+    buildDropDown();
+}
+
+function generateId() {
+    return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
+        (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+    );
+}
+
+function editEvent(eventRow) {
+    let eventId = eventRow.getAttribute('data-event');
+
+    let currentEvents = getEventData();
+
+    let event = currentEvents.find(event => event.id == eventId);
+
+    document.getElementById('editId').value = event.id;
+    document.getElementById('editName').value = event.event;
+    document.getElementById('editCity').value = event.city;
+    document.getElementById('editAttendance').value = event.attendance;
+
+    let eventDate = new Date(event.date);
+    let eventDateString = eventDate.toISOString();
+    let eventDateArray = eventDateString.split('T');
+    let eventDateFormated = eventDateArray[0];
+    document.getElementById('editDate').value = eventDateFormated;
+
+    let eventStateSelect = document.getElementById('editState');
+    let optionsArray = [...eventStateSelect.options];
+    let index = optionsArray.findIndex(option => option.text == event.state);
+    eventStateSelect.selectedIndex = index;
+
+    // //for loop to find the options
+    // for (let i = 0; i < eventStateSelect.length; i++) {
+    //     let element = eventStateSelect[i];
+        
+    //     if (element.state == option.text) {
+    //         eventStateSelect.selectedIndex = i;
+    //     };
+    // };
+}
+
+function deleteEvent() {
+    let eventId = document.getElementById('editId').value;
+
+    //get the events in local storage
+    let currentEvents = getEventData();
+
+    //filter out any event with id
+    let filteredEvents = currentEvents.filter(event => event.id != eventId);
+
+    //save that array to local storage
+    localStorage.setItem('nerdNookData', JSON.stringify(filteredEvents));
+
+    //Update stats and events tabel
+    buildDropDown();
+}
+
+function updateEvent() {
+
+    let name = document.getElementById('editName').value;
+
+    let city = document.getElementById('editCity').value;
+
+    let attendance = parseInt(document.getElementById('editAttendance').value);
+
+    let date = document.getElementById('editDate').value;
+    date = new Date(date).toLocaleDateString();
+
+    let stateSelect = document.getElementById('editState');
+    let selectedIndex = stateSelect.selectedIndex;
+    let state = stateSelect.options[selectedIndex].text;
+
+    let eventId = document.getElementById('editId').value;
+
+    //create new event object
+    let newEvent = {
+        event: name,
+        city: city,
+        state: state,
+        attendance: attendance,
+        date: date,
+        id: eventId,
+    };
+
+    //get my event array
+    let currentEvents = getEventData();
+
+    //find the location of the old event with this id
+    let index = currentEvents.findIndex(event => event.id == eventId);
+
+    //replace that event with newId
+    currentEvents[index] = newEvent;
+
+    //save it in local storage
+    localStorage.setItem('nerdNookData', JSON.stringify(currentEvents));
+
+    //Update stats & events table
     buildDropDown();
 }

@@ -144,7 +144,7 @@ main {
 }
 
 #statsTable,
-#eventsTable {
+#eventsTable table {
     max-height: 400px;
     overflow-y: auto;
 }

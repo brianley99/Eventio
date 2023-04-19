@@ -136,7 +136,6 @@
         <hr>
         <section id="app" class="mt-5">
             <h3 class="fw-light">The App</h3>
-            <!-- Stats Code -->
             <div id="statsTable" class="mt-4">
                 <div class="dropdown mb-3">
                     <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
@@ -179,7 +178,7 @@
                     Add Event
                 </button>
                 <div class="table-responsive mt-3">
-                    <table class="table table-responsive table-striped">
+                    <table class="table table-hover table-striped">
                         <thead class="bg-primary-subtle">
                             <tr>
                                 <th>Name</th>
@@ -189,16 +188,8 @@
                                 <th>Date</th>
                             </tr>
                         </thead>
-                        <!-- JavaScript Events Table Body-->
                         <tbody id="eventsTableBody">
-                            <!-- Example Data -->
-                            <tr>
-                                <th>Comic Con</th>
-                                <th>San Diego</th>
-                                <th>CA</th>
-                                <th>100</th>
-                                <th>09/14/2022</th>
-                            </tr>
+                            <!-- JavaScript Events Table Body-->
                         </tbody>
                     </table>
                 </div>
@@ -717,13 +708,115 @@
         </div>
     </div>
 
+    <!-- Edit/Delete Event Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="editModalLabel">Edit Event</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="#">
+                    <input type="hidden" id="editId" />
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="editName" class="form-label">Event Name</label>
+                            <input id="editName" type="text" placeholder="Event" class="form-control" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="editCity" class="form-label">City</label>
+                            <input id="editCity" type="text" placeholder="City" class="form-control" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="editState" class="form-label">State</label>
+                            <select id="editState" class="form-select" required>
+                                <option selected disabled> -- Select State --</option>
+                                <option value="AL">Alabama</option>
+                                <option value="AK">Alaska</option>
+                                <option value="AZ">Arizona</option>
+                                <option value="AR">Arkansas</option>
+                                <option value="CA">California</option>
+                                <option value="CO">Colorado</option>
+                                <option value="CT">Connecticut</option>
+                                <option value="DE">Delaware</option>
+                                <option value="DC">District Of Columbia</option>
+                                <option value="FL">Florida</option>
+                                <option value="GA">Georgia</option>
+                                <option value="HI">Hawaii</option>
+                                <option value="ID">Idaho</option>
+                                <option value="IL">Illinois</option>
+                                <option value="IN">Indiana</option>
+                                <option value="IA">Iowa</option>
+                                <option value="KS">Kansas</option>
+                                <option value="KY">Kentucky</option>
+                                <option value="LA">Louisiana</option>
+                                <option value="ME">Maine</option>
+                                <option value="MD">Maryland</option>
+                                <option value="MA">Massachusetts</option>
+                                <option value="MI">Michigan</option>
+                                <option value="MN">Minnesota</option>
+                                <option value="MS">Mississippi</option>
+                                <option value="MO">Missouri</option>
+                                <option value="MT">Montana</option>
+                                <option value="NE">Nebraska</option>
+                                <option value="NV">Nevada</option>
+                                <option value="NH">New Hampshire</option>
+                                <option value="NJ">New Jersey</option>
+                                <option value="NM">New Mexico</option>
+                                <option value="NY">New York</option>
+                                <option value="NC">North Carolina</option>
+                                <option value="ND">North Dakota</option>
+                                <option value="OH">Ohio</option>
+                                <option value="OK">Oklahoma</option>
+                                <option value="OR">Oregon</option>
+                                <option value="PA">Pennsylvania</option>
+                                <option value="RI">Rhode Island</option>
+                                <option value="SC">South Carolina</option>
+                                <option value="SD">South Dakota</option>
+                                <option value="TN">Tennessee</option>
+                                <option value="TX">Texas</option>
+                                <option value="UT">Utah</option>
+                                <option value="VT">Vermont</option>
+                                <option value="VA">Virginia</option>
+                                <option value="WA">Washington</option>
+                                <option value="WV">West Virginia</option>
+                                <option value="WI">Wisconsin</option>
+                                <option value="WY">Wyoming</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editAttendance" class="form-label">Attendance</label>
+                            <input id="editAttendance" type="number" placeholder="Attendance" class="form-control" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="editDate" class="form-label">Event Date</label>
+                            <input id="editDate" type="date" class="form-control" required />
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-between">
+                        <div>
+                            <button onclick="deleteEvent()" type="button" class="btn btn-outline-danger"
+                                data-bs-dismiss="modal">Delete</button>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button onclick="updateEvent()" type="button" class="btn btn-primary"
+                                data-bs-dismiss="modal">Save
+                                Changes</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- TEMPLATES -->
     <template id="dropdownItemTemplate">
         <li><a onclick="viewFilteredEvents(this)" class="dropdown-item"></a></li>
     </template>
 
     <template id="tableRowTemplate">
-        <tr>
+        <tr onclick="editEvent(this)" role="button" data-bs-toggle="modal" data-bs-target="#editModal">
             <td data-id="event">Event Name</td>
             <td data-id="city">City</td>
             <td data-id="state">State</td>

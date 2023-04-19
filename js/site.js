@@ -1,3 +1,4 @@
+//Seed event data
 var events = [{
     event: "ComicCon",
     city: "New York",
@@ -63,30 +64,32 @@ var events = [{
 },
 ];
 
-//Build dropdown for specific cities
 function buildDropDown() {
+    //Build dropdown for specific cities
+
+    //Reset menu
     let dropdownMenu = document.getElementById('eventDropdown');
     dropdownMenu.innerHTML = '';
 
-    let currentEvents = events; // TODO - GET EVENTS FROM STORAGE
+    //Get Data for all events
+    currentEvents = getEventData();
 
+    //Create an array of unique cities
     let cityNames = currentEvents.map(event => event.city);
     let citySet = new Set(cityNames);
     let uniqueCityNames = [...citySet]; // ['San Diego', 'Charlotte', ...]
 
+    //Get template for menu items
     const dropdownTemplate = document.getElementById('dropdownItemTemplate');
-
-    //Copy template
     let dropdownItemNode = document.importNode(dropdownTemplate.content, true);
 
-    //Make All Cities Menu
+    //Make Menu for all cities
     let dropdownItemLink = dropdownItemNode.querySelector("a");
     dropdownItemLink.innerText = 'All Cities';
-    dropdownItemLink.setAttribute('data-string', 'ALL');
-
-    //Add to our page
+    dropdownItemLink.setAttribute('data-string', 'All');
     dropdownMenu.appendChild(dropdownItemNode);
 
+    //Make Menu for all individual cities
     for (let i = 0; i < uniqueCityNames.length; i++) {
 
         //Copy template
@@ -94,7 +97,7 @@ function buildDropDown() {
 
         //get the city name
         let cityName = uniqueCityNames[i];
-        
+
         //Make City Menu
         let dropdownItemLink = dropdownItemNode.querySelector("a");
         dropdownItemLink.innerText = cityName;
@@ -104,16 +107,23 @@ function buildDropDown() {
         dropdownMenu.appendChild(dropdownItemNode);
     };
 
+    //Display Stats and Event data for selected city(or all)
     displayEventData(currentEvents);
-};
+    displayStats(currentEvents);
+    document.getElementById('location').innerText = "Stats for All Events";
+}
 
 function displayEventData(currentEvents) {
+    //Display an array of events on page
 
+    //Reset events table
     const eventTable = document.getElementById('eventsTableBody');
-    const template = document.getElementById('tableRowTemplate');
-
     eventTable.innerHTML = '';
 
+    //Get template for table rows
+    const template = document.getElementById('tableRowTemplate');
+
+    //Format each event and add to table 
     for (let i = 0; i < currentEvents.length; i++) {
         const event = currentEvents[i];
         let tableRow = document.importNode(template.content, true);
@@ -122,8 +132,150 @@ function displayEventData(currentEvents) {
         tableRow.querySelector('[data-id="city"]').textContent = event.city;
         tableRow.querySelector('[data-id="state"]').textContent = event.state;
         tableRow.querySelector('[data-id="attendance"]').textContent = event.attendance;
-        tableRow.querySelector('[data-id="date"]').textContent = event.date;
+        tableRow.querySelector('[data-id="date"]').textContent = new Date(event.date).toLocaleDateString();
 
         eventTable.appendChild(tableRow);
     };
+}
+
+function calculateStats(currentEvents) {
+    //Takes an array of events and returns stats
+
+    //Create stats variables
+    let total = 0;
+    let average = 0;
+    let most = 0;
+    let least = currentEvents[0].attendance;
+
+    //Calculate total, most, and least
+    for (let i = 0; i < currentEvents.length; i++) {
+        let currentAttendance = currentEvents[i].attendance;
+
+        total += currentAttendance;
+
+        if (currentAttendance > most) {
+            most = currentAttendance;
+        };
+
+        if (currentAttendance < least) {
+            least = currentAttendance;
+        };
+
+    };
+
+    //Calculate average
+    average = total / currentEvents.length;
+    average = Math.ceil(average);
+
+    //Return stats as an object
+    let stats = {
+        total: total,
+        average: average,
+        most: most,
+        least: least,
+    };
+
+    return stats;
+}
+
+function displayStats(currentEvents) {
+    //Takes an array of events and displays them on page
+
+    //Calculate stats
+    let stats = calculateStats(currentEvents);
+
+    //get stats from page
+    let totalAttendance = document.getElementById('totalAttendance');
+    let averageAttendance = document.getElementById('averageAttendance');
+    let mostAttendance = document.getElementById('mostAttendance');
+    let leastAttendance = document.getElementById('leastAttendance');
+
+    //set elements to stats
+    totalAttendance.textContent = stats.total;
+    averageAttendance.textContent = stats.average;
+    mostAttendance.textContent = stats.most;
+    leastAttendance.textContent = stats.least;
+
+}
+
+function getEventData() {
+    //Gets all current event data from local database
+
+    //Get data from local database. Create one if needed
+    let data = localStorage.getItem('nerdNookData');
+    if (data == null) {
+        localStorage.getItem('nerdNookData', JSON.stringify(data))
+    };
+
+    //Return data as an array of objects
+    let currentEvents = data === null ? events : JSON.parse(data);
+    return currentEvents;
+}
+
+function viewFilteredEvents(droppownItem) {
+    //Takes a city name returns fltered events
+
+    //Get city name from page
+    let cityName = droppownItem.getAttribute('data-string');
+
+    //get all my events
+    let allEvents = getEventData();
+
+    //Return all events if city name all is selected
+    if (cityName == 'All') {
+        displayStats(allEvents);
+        displayEventData(allEvents);
+        document.getElementById('location').innerText = 'All Events';
+
+        return;
+    };
+
+    //filter those events to just the selected city
+    let filteredEvents = allEvents.filter(event => event.city.toLowerCase() == cityName.toLowerCase());
+
+    //display stats for those events
+    displayStats(filteredEvents);
+
+    //change the stats header
+    document.getElementById('location').innerText = cityName;
+
+    //display only those events in the table
+    displayEventData(filteredEvents);
+}
+
+function saveNewEvent() {
+    //Adds new event to local database
+
+    //get the form input values
+    let name = document.getElementById('newEventName').value;
+
+    let city = document.getElementById('newEventCity').value;
+
+    let attendance = parseInt(document.getElementById('newEventAttendance').value);
+    attendance = attendance.toLocaleString();
+
+    let date = document.getElementById('newEventDate').value;
+    date = new Date(date).toLocaleDateString();
+
+    let stateSelect = document.getElementById('newEventState');
+    let selectedIndex = stateSelect.selectedIndex;
+    let state = stateSelect.options[selectedIndex].text;
+
+    //create new event object
+    let newEvent = {
+        event: name,
+        city: city,
+        state: state,
+        attendance: attendance,
+        date: date,
+    };
+
+    //add event to the array of the current events
+    let events = getEventData();
+    events.push(newEvent);
+
+    //then, save the array with the new event
+    localStorage.setItem('nerdNookData', JSON.stringify(events));
+
+    buildDropDown();
 }

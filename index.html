@@ -134,11 +134,12 @@
             </ul>
         </section>
         <hr>
-        <div class="row g-3">
-            <div class="col-sm-6">
-                <!-- Stats Code -->
+        <section id="app" class="mt-5">
+            <h3 class="fw-light">The App</h3>
+            <!-- Stats Code -->
+            <div id="statsTable" class="mt-4">
                 <div class="dropdown mb-3">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         Location
                     </button>
@@ -155,80 +156,52 @@
                     <tbody>
                         <tr>
                             <td>Total Attendance</td>
-                            <td id="totalAttendance">100</td>
+                            <td id="totalAttendance"></td>
                         </tr>
                         <tr>
                             <td>Average Attendance</td>
-                            <td id="averageAttendance">100</td>
+                            <td id="averageAttendance"></td>
                         </tr>
                         <tr>
                             <td>Most Attendance</td>
-                            <td id="mostAttendance">100</td>
+                            <td id="mostAttendance"></td>
                         </tr>
                         <tr>
                             <td>Least Attendance</td>
-                            <td id="leastAttendance">100</td>
+                            <td id="leastAttendance"></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <div class="col-sm-6 order-first order-sm-last">
-                <!-- Logo -->
-                <img src="/img/APPNAMELogo.svg" class="img-fluid p-3" />
-            </div>
-        </div>
-        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#newEventModal">
-            Add Event
-        </button>
-        <div class="table-responsive mt-3">
-            <table class="table table-responsive table-striped">
-                <thead class="bg-primary-subtle">
-                    <tr>
-                        <th>Name</th>
-                        <th>City</th>
-                        <th>State</th>
-                        <th>Attendance</th>
-                        <th>Date</th>
-                    </tr>
-                </thead>
-                <!-- JavaScript Events Table Body-->
-                <tbody id="eventsTableBody">
-                    <!-- Example Data -->
-                    <tr>
-                        <th>Comic Con</th>
-                        <th>San Diego</th>
-                        <th>CA</th>
-                        <th>100</th>
-                        <th>09/14/2022</th>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <section id="app" class="d-none mt-5">
-            <h3 class="fw-light">The App</h3>
-            <ol>
-                <!-- ADD INSTRUCTIONS-->
-                <li>Lorem ipsum dolor sit amet.</li>
-                <li>Lorem, ipsum dolor.</li>
-            </ol>
-            <form id="appForm" action="#" class="bg-primary-subtle rounded p-3 mt-4 mb-2">
-                <div class="row row-cols-1 g-3">
-                    <div class="col">
-                        <!-- ADD INPUTS -->
-                        <label for="message" class="form-label">message</label>
-                        <input id="message" type="text" aria-label="message" value="Test Message"
-                            class="form-control" />
-                    </div>
-                    <div class="col text-start">
-                        <button onclick="displayMessage()" type="button" class="btn btn-primary">
-                            ACTION
-                        </button>
-                    </div>
+            <div id="eventsTable" class="mt-4">
+                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                    data-bs-target="#newEventModal">
+                    Add Event
+                </button>
+                <div class="table-responsive mt-3">
+                    <table class="table table-responsive table-striped">
+                        <thead class="bg-primary-subtle">
+                            <tr>
+                                <th>Name</th>
+                                <th>City</th>
+                                <th>State</th>
+                                <th>Attendance</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <!-- JavaScript Events Table Body-->
+                        <tbody id="eventsTableBody">
+                            <!-- Example Data -->
+                            <tr>
+                                <th>Comic Con</th>
+                                <th>San Diego</th>
+                                <th>CA</th>
+                                <th>100</th>
+                                <th>09/14/2022</th>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-            </form>
-            <!-- ADD RESULTS -->
-            <div id="results" class="d-none">
-
             </div>
         </section>
         <hr>
@@ -406,7 +379,8 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" newEventdata-bs-dismiss="modal">Save</button>
+                        <button onclick="saveNewEvent()" type="button" class="btn btn-primary"
+                            data-bs-dismiss="modal">Save</button>
                     </div>
                 </form>
             </div>
@@ -415,7 +389,7 @@
 
     <!-- TEMPLATES -->
     <template id="dropdownItemTemplate">
-        <li><a class="dropdown-item" href="#"></a></li>
+        <li><a onclick="viewFilteredEvents(this)" class="dropdown-item"></a></li>
     </template>
 
     <template id="tableRowTemplate">

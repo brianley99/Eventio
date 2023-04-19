@@ -136,13 +136,15 @@ main {
 }
 
 #appForm,
-#resultsTable {
+#statsTable,
+#eventsTable {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
 }
 
-#resultsTable {
+#statsTable,
+#eventsTable {
     max-height: 400px;
     overflow-y: auto;
 }

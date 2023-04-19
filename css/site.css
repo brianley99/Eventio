@@ -149,6 +149,11 @@ main {
     overflow-y: auto;
 }
 
+#seedData pre {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
 /***** End MAIN *****/
 
 

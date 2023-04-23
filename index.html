@@ -53,7 +53,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                            <a class="nav-link active" aria-current="page" href="#hero">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#app">The App</a>
@@ -62,13 +62,13 @@
                             <a class="nav-link" href="#code">The Code</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="https://github.com/brianley99//NerdNook" target="_blank">Repo</a>
+                            <a class="nav-link" href="https://github.com/brianley99/NerdNook" target="_blank">Repo</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="https://bley-portfolio.netlify.app/" target="_blank">About</a>
                         </li>
                         <li class="nav-item">
-                            <!-- ADD LINK TO BLOG-->
+                            <!-- TODO: ADD LINK TO BLOG-->
                             <a class="nav-link" href="#" target="_blank">Blog</a>
                         </li>
                     </ul>
@@ -77,243 +77,232 @@
         </nav>
     </header>
 
-    <main class="container p-3">
-        <section id="home" class="hero">
-            <div class="row row-cols-1 row-cols-lg-2 g-3">
-                <div class="col d-flex justify-content-center mb-3">
-                    <img src="/img/Nerd Nook.svg" class="appLogo mx-auto w-100" />
+    <main>
+        <div id="hero" class="container col-xxl-8 px-4 py-5">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                <div class="col-10 col-sm-8 col-lg-6">
+                    <img src="/img/Nerd Nook.gif" class="d-block mx-lg-auto img-fluid rounded" alt="Nerd Nook Logo"
+                        width="700" height="500" loading="lazy">
                 </div>
-                <div class="col d-flex justify-content-center align-items-center">
-                    <div>
-                        <h1>Coding Challange</h1>
-                        <p class="lead mb-3">Nerd Nook is an event company the produces comic cons. The marketing team
-                            has
-                            requested a site that displays stats
-                            from their events. You are given an array of event data to build a site.</p>
-                        <a href="#app" class="btn btn-primary btn-lg">Try it out!</a>
-                        <a href="#code" class="btn btn-outline-dark btn-lg">View Code</a>
+                <div class="col-lg-6">
+                    <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">
+                        Coding Challange</h1>
+                    <p class="lead">Nerd Nook is a dynamic web page programmed with JavaScript that tracks events with a
+                        local database and data manipulation features.</p>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                        <a href="#app" class="btn btn-primary btn-lg px-4 me-md-2">Try it out!</a>
+                        <a href="#code" class="btn btn-outline-secondary btn-lg px-4">View Code</a>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-divider"></div>
+        <div id="techStack" class="container px-4 py-5">
+            <h2 class="pb-2 border-bottom">Tech Stack</h2>
+            <div class="row g-4 py-5 row-cols-1 row-cols-md-2 row-cols-xl-4">
+                <div class="col d-flex align-items-start">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                        class="mt-2 me-3" />
+                    <div>
+                        <h3 class="fs-2">JavaScript</h3>
+                        <p>I used JavaScript to create interactive elements, validate user input, and enhance user
+                            experience
+                            through dynamic
+                            content, and functionality.</p>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"
+                        class="mt-2 me-3" />
+                    <div>
+                        <h3 class="fs-2">Bootstrap</h3>
+                        <p>I used Bootstrap to create responsive and mobile-friendly design. Bootstrap provided a
+                            framework
+                            for creating consistent layouts, typography, and UI components.</p>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+                        class="mt-2 me-3" />
+                    <div>
+                        <h3 class="fs-2">HTML</h3>
+                        <p>I used HTML to organize text, images, and other
+                            media into a logical and accessible format for users.</p>
+                    </div>
+                </div>
+                <div class="col d-flex align-items-start">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+                        class="mt-2 me-3" />
+                    <div>
+                        <h3 class="fs-2">CSS</h3>
+                        <p>I used CSS to control the color, typography, and other design elements of HTML content to
+                            create
+                            visually
+                            appealing and consistent user interface.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-divider"></div>
+        <div id="app" class="container px-4 py-5">
+            <h2 class="pb-2 border-bottom">The App</h2>
 
-                </div>
-            </div>
-        </section>
-        <hr>
-        <section id="about" class="mt-5">
-            <h3 class="fw-light">Build Using</h3>
-            <div class="techStack mb-2">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" />
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" />
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" />
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" />
-            </div>
-            <ul class="checklist">
-                <li>
-                    <i class="bi bi-check-square-fill"></i>
-                    <span>Total attendance by City</span>
-                </li>
-                <li>
-                    <i class="bi bi-check-square-fill"></i>
-                    <span>Average Attendance by City</span>
-                </li>
-                <li>
-                    <i class="bi bi-check-square-fill"></i>
-                    <span>Least attended event by City</span>
-                </li>
-                <li>
-                    <i class="bi bi-check-square-fill"></i>
-                    <span>Most attended event by City</span>
-                </li>
-                <li>
-                    <i class="bi bi-check-square-fill"></i>
-                    <span>Show these stats for All Events</span>
-                </li>
-                <li>
-                    <i class="bi bi-check-square-fill"></i>
-                    <span>The ability to add additional events and store the events in local storage.</span>
-                </li>
-            </ul>
-        </section>
-        <hr>
-        <section id="app" class="mt-5">
-            <h3 class="fw-light">The App</h3>
-            <div id="statsTable" class="mt-4">
-                <div class="dropdown mb-3">
-                    <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Location
-                    </button>
-                    <ul id="eventDropdown" class="dropdown-menu">
-                        <!--- JavsScript Event Dropdown -->
-                    </ul>
-                </div>
-                <table class="table table-striped table-bordered mt-3">
-                    <thead class="bg-primary-subtle">
-                        <tr>
-                            <th colspan="2">Stats for <span id="location">All Events</span></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Total Attendance</td>
-                            <td id="totalAttendance"></td>
-                        </tr>
-                        <tr>
-                            <td>Average Attendance</td>
-                            <td id="averageAttendance"></td>
-                        </tr>
-                        <tr>
-                            <td>Most Attendance</td>
-                            <td id="mostAttendance"></td>
-                        </tr>
-                        <tr>
-                            <td>Least Attendance</td>
-                            <td id="leastAttendance"></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div id="eventsTable" class="mt-4">
-                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
-                    data-bs-target="#newEventModal">
-                    Add Event
-                </button>
-                <div class="table-responsive mt-3">
-                    <table class="table table-hover table-striped">
-                        <thead class="bg-primary-subtle">
+            <div id="results" class="alert alert-success shadow rounded mt-3 p-4">
+                <div id="statsTable" class="mt-4">
+                    <div class="dropdown mb-3">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Location
+                        </button>
+                        <ul id="eventDropdown" class="dropdown-menu">
+                            <!--- JavsScript Event Dropdown -->
+                        </ul>
+                    </div>
+                    <table class="table table-striped table-hover table-bordered mt-3 mx-auto">
+                        <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>City</th>
-                                <th>State</th>
-                                <th>Attendance</th>
-                                <th>Date</th>
+                                <th colspan="2">Stats for <span id="location">All Events</span></th>
                             </tr>
                         </thead>
-                        <tbody id="eventsTableBody">
-                            <!-- JavaScript Events Table Body-->
+                        <tbody>
+                            <tr>
+                                <td>Total Attendance</td>
+                                <td id="totalAttendance" class="text-end"></td>
+                            </tr>
+                            <tr>
+                                <td>Average Attendance</td>
+                                <td id="averageAttendance" class="text-end"></td>
+                            </tr>
+                            <tr>
+                                <td>Most Attendance</td>
+                                <td id="mostAttendance" class="text-end"></td>
+                            </tr>
+                            <tr>
+                                <td>Least Attendance</td>
+                                <td id="leastAttendance" class="text-end"></td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
+                <div id="eventsTable" class="mt-4">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#newEventModal">
+                        Add Event
+                    </button>
+                    <div class="table-responsive mt-3">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>City</th>
+                                    <th>State</th>
+                                    <th>Attendance</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="eventsTableBody">
+                                <!-- JavaScript Events Table Body-->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-        </section>
-        <hr>
-        <section id="code" class="mt-5">
-            <h3 class="fw-light">The Code</h3>
-            <!-- Overview -->
-            <h4 class="mt-3">Seperation of concerns</h4>
-            <p>The solution to this coding challange is split into three sections, each of which will addreress a
-                seperate
-                concern.</p>
-            <dl class="row mb-0">
-                <dt class="col-md-3">Controller, Logic, View</dt>
-                <!-- ADD CONTROLLER, LOGIC, & VIEW FUNCTION DESCRIPTION -->
-                <dd class="col-md-9">
-                    <p>The <em>Controller</em> function is the entry point for the page, it's responsible for getting
-                        and validating the inputs as well as calling any other functions.</p>
-                    <p>The <em>Logic</em> function Lorem ipsum dolor sit.</p>
-                    <p>The <em>View</em> function Lorem ipsum dolor sit amet.</p>
-                </dd>
-            </dl>
-            <pre class="line-numbers">
-                    <code class="language-js">
-                        <!-- ADD CONTROLLER, LOGIC, & VIEW FUNCTIONS JS CODE -->
-                        function displayMessage() {
-    let msg = document.getElementById('message').value;
-    //alert(msg);
+        </div>
+        <div class="section-divider"></div>
+        <div id="code" class="container px-4 py-5">
 
-    Swal.fire({
-        backdrop: false,
-        title: 'Nerd Nook',
-        text: msg
-    })
-}
-                    </code>
-            </pre>
-            <div id="seedData" class="mt-4">
+            <h2 class="pb-2 border-bottom">The Code</h2>
+
+            <h4 class="mt-5">Functions</h4>
+            <div id="seedData" class="pt-3 mt-5">
                 <dl class="row mb-0">
-                    <dt class="col-sm-3">Seeded Data</dt>
-                    <dd class="col-sm-9">
-                        <p></p>
+                    <dt class="col-md-3">seedData</dt>
+                    <dd class="col-md-9">
+                        <p><!--Add Function Description --></p>
                     </dd>
                 </dl>
-                <pre class="line-numbers mt-0"><code class="language-js">
-                    var events = [{
-    event: "ComicCon",
-    city: "New York",
-    state: "New York",
-    attendance: 240000,
-    date: "06/01/2017",
-},
-{
-    event: "ComicCon",
-    city: "New York",
-    state: "New York",
-    attendance: 250000,
-    date: "06/01/2018",
-},
-{
-    event: "ComicCon",
-    city: "New York",
-    state: "New York",
-    attendance: 257000,
-    date: "06/01/2019",
-},
-{
-    event: "ComicCon",
-    city: "San Diego",
-    state: "California",
-    attendance: 130000,
-    date: "06/01/2017",
-},
-{
-    event: "ComicCon",
-    city: "San Diego",
-    state: "California",
-    attendance: 140000,
-    date: "06/01/2018",
-},
-{
-    event: "ComicCon",
-    city: "San Diego",
-    state: "California",
-    attendance: 150000,
-    date: "06/01/2019",
-},
-{
-    event: "HeroesCon",
-    city: "Charlotte",
-    state: "North Carolina",
-    attendance: 40000,
-    date: "06/01/2017",
-},
-{
-    event: "HeroesCon",
-    city: "Charlotte",
-    state: "North Carolina",
-    attendance: 45000,
-    date: "06/01/2018",
-},
-{
-    event: "HeroesCon",
-    city: "Charlotte",
-    state: "North Carolina",
-    attendance: 50000,
-    date: "06/01/2019",
-},
-];
-                </code></pre>
+                <div class="mx-md-3">
+                    <pre class="line-numbers mt-0">
+                        <code class="language-js">
+                            var events = [{
+                            event: "ComicCon",
+                            city: "New York",
+                            state: "New York",
+                            attendance: 240000,
+                            date: "06/01/2017",
+                            },
+                            {
+                            event: "ComicCon",
+                            city: "New York",
+                            state: "New York",
+                            attendance: 250000,
+                            date: "06/01/2018",
+                            },
+                            {
+                            event: "ComicCon",
+                            city: "New York",
+                            state: "New York",
+                            attendance: 257000,
+                            date: "06/01/2019",
+                            },
+                            {
+                            event: "ComicCon",
+                            city: "San Diego",
+                            state: "California",
+                            attendance: 130000,
+                            date: "06/01/2017",
+                            },
+                            {
+                            event: "ComicCon",
+                            city: "San Diego",
+                            state: "California",
+                            attendance: 140000,
+                            date: "06/01/2018",
+                            },
+                            {
+                            event: "ComicCon",
+                            city: "San Diego",
+                            state: "California",
+                            attendance: 150000,
+                            date: "06/01/2019",
+                            },
+                            {
+                            event: "HeroesCon",
+                            city: "Charlotte",
+                            state: "North Carolina",
+                            attendance: 40000,
+                            date: "06/01/2017",
+                            },
+                            {
+                            event: "HeroesCon",
+                            city: "Charlotte",
+                            state: "North Carolina",
+                            attendance: 45000,
+                            date: "06/01/2018",
+                            },
+                            {
+                            event: "HeroesCon",
+                            city: "Charlotte",
+                            state: "North Carolina",
+                            attendance: 50000,
+                            date: "06/01/2019",
+                            },
+                            ];
+                        </code>
+                    </pre>
+                </div>
             </div>
-            <!-- Detail on functions -->
-            <h4 class="mt-4">Functions</h4>
-            <!-- ADD FUNCTIONS DETAILS -->
-            <div id="buildDropDown" class="mt-4">
+            <div id="buildDropDown" class="pt-3 mt-3">
                 <dl class="row mb-0">
-                    <dt class="col-sm-3">buildDropDown()</dt>
-                    <dd class="col-sm-9">
-                        <p></p>
+                    <dt class="col-md-3">buildDropDown</dt>
+                    <dd class="col-md-9">
+                        <p><!--Add Function Description --></p>
                     </dd>
                 </dl>
-                <pre class="line-numbers mt-0"><code class="language-js">
-                    function buildDropDown() {
+                <div class="mx-md-3">
+                    <pre class="line-numbers mt-0">
+                        <code class="language-js">
+                            function buildDropDown() {
     //Build dropdown for specific cities
 
     //Reset menu
@@ -361,17 +350,21 @@
     displayStats(currentEvents);
     document.getElementById('location').innerText = "Stats for All Events";
 }
-                </code></pre>
+                        </code>
+                    </pre>
+                </div>
             </div>
-            <div id="displayEventData" class="mt-4">
+            <div id="displayEventData" class="pt-3 mt-5">
                 <dl class="row mb-0">
-                    <dt class="col-sm-3">displayEventData()</dt>
-                    <dd class="col-sm-9">
-                        <p></p>
+                    <dt class="col-md-3">displayEventData</dt>
+                    <dd class="col-md-9">
+                        <p><!--Add Function Description --></p>
                     </dd>
                 </dl>
-                <pre class="line-numbers mt-0"><code class="language-js">
-                    function displayEventData(currentEvents) {
+                <div class="mx-md-3">
+                    <pre class="line-numbers mt-0">
+                        <code class="language-js">
+                            function displayEventData(currentEvents) {
     //Display an array of events on page
 
     //Reset events table
@@ -389,24 +382,29 @@
         tableRow.querySelector('[data-id="event"]').textContent = event.event;
         tableRow.querySelector('[data-id="city"]').textContent = event.city;
         tableRow.querySelector('[data-id="state"]').textContent = event.state;
-        tableRow.querySelector('[data-id="attendance"]').textContent = event.attendance;
+        tableRow.querySelector('[data-id="attendance"]').textContent = event.attendance.toLocaleString("en-US");
         tableRow.querySelector('[data-id="date"]').textContent = new Date(event.date).toLocaleDateString();
+
+        tableRow.querySelector('tr').setAttribute('data-event', event.id);
 
         eventTable.appendChild(tableRow);
     };
 }
-
-                </code></pre>
+                        </code>
+                    </pre>
+                </div>
             </div>
-            <div id="calculateStats" class="mt-4">
+            <div id="calculateStats" class="pt-3 mt-5">
                 <dl class="row mb-0">
-                    <dt class="col-sm-3">calculateStats()</dt>
-                    <dd class="col-sm-9">
-                        <p></p>
+                    <dt class="col-md-3">calculateStats</dt>
+                    <dd class="col-md-9">
+                        <p><!--Add Function Description --></p>
                     </dd>
                 </dl>
-                <pre class="line-numbers mt-0"><code class="language-js">
-                    function calculateStats(currentEvents) {
+                <div class="mx-md-3">
+                    <pre class="line-numbers mt-0">
+                        <code class="language-js">
+                            function calculateStats(currentEvents) {
     //Takes an array of events and returns stats
 
     //Create stats variables
@@ -445,17 +443,21 @@
 
     return stats;
 }
-                </code></pre>
+                        </code>
+                    </pre>
+                </div>
             </div>
-            <div id="displayStats" class="mt-4">
+            <div id="displayStats" class="pt-3 mt-5">
                 <dl class="row mb-0">
-                    <dt class="col-sm-3">displayStats()</dt>
-                    <dd class="col-sm-9">
-                        <p></p>
+                    <dt class="col-md-3">displayStats</dt>
+                    <dd class="col-md-9">
+                        <p><!--Add Function Description --></p>
                     </dd>
                 </dl>
-                <pre class="line-numbers mt-0"><code class="language-js">
-                    function displayStats(currentEvents) {
+                <div class="mx-md-3">
+                    <pre class="line-numbers mt-0">
+                        <code class="language-js">
+                            function displayStats(currentEvents) {
     //Takes an array of events and displays them on page
 
     //Calculate stats
@@ -468,127 +470,312 @@
     let leastAttendance = document.getElementById('leastAttendance');
 
     //set elements to stats
-    totalAttendance.textContent = stats.total;
-    averageAttendance.textContent = stats.average;
-    mostAttendance.textContent = stats.most;
-    leastAttendance.textContent = stats.least;
+    totalAttendance.textContent = stats.total.toLocaleString("en-US");
+    averageAttendance.textContent = stats.average.toLocaleString("en-US");
+    mostAttendance.textContent = stats.most.toLocaleString("en-US");
+    leastAttendance.textContent = stats.least.toLocaleString("en-US");
 
 }
-                </code></pre>
+                        </code>
+                    </pre>
+                </div>
             </div>
-            <div id="getEventData" class="mt-4">
+            <div id="getEventData" class="pt-3 mt-5">
                 <dl class="row mb-0">
-                    <dt class="col-sm-3">getEventData()</dt>
-                    <dd class="col-sm-9">
-                        <p></p>
+                    <dt class="col-md-3">getEventData</dt>
+                    <dd class="col-md-9">
+                        <p><!--Add Function Description --></p>
                     </dd>
                 </dl>
-                <pre class="line-numbers mt-0"><code class="language-js">
-                    function getEventData() {
+                <div class="mx-md-3">
+                    <pre class="line-numbers mt-0">
+                        <code class="language-js">
+                            function getEventData() {
     //Gets all current event data from local database
 
-    //Get data from local database. Create one if needed
     let data = localStorage.getItem('nerdNookData');
+
     if (data == null) {
-        localStorage.getItem('nerdNookData', JSON.stringify(data))
+
+        let identifiedEvents = events.map(event => {
+            event.id = generateId();
+            return event;
+        });
+
+        localStorage.setItem('nerdNookData', JSON.stringify(identifiedEvents));
+        data = localStorage.getItem('nerdNookData');
     };
 
-    //Return data as an array of objects
-    let currentEvents = data === null ? events : JSON.parse(data);
+    let currentEvents = JSON.parse(data);
+
+    if (currentEvents.some(event => event.id == undefined)) {
+
+        currentEvents.forEach(event => event.id = generateId());
+
+        localStorage.setItem('nerdNookData', JSON.stringify(currentEvents));
+    };
+
     return currentEvents;
 }
-                </code></pre>
+                        </code>
+                    </pre>
+                </div>
             </div>
-            <div id="viewFilteredEvents" class="mt-4">
+            <div id="viewFilteredEvents" class="pt-3 mt-5">
                 <dl class="row mb-0">
-                    <dt class="col-sm-3">viewFilteredEvents()</dt>
-                    <dd class="col-sm-9">
-                        <p></p>
+                    <dt class="col-md-3">viewFilteredEvents</dt>
+                    <dd class="col-md-9">
+                        <p><!--Add Function Description --></p>
                     </dd>
                 </dl>
-                <pre class="line-numbers mt-0"><code class="language-js">
-                    function viewFilteredEvents(droppownItem) {
-    //Takes a city name returns fltered events
-
-    //Get city name from page
-    let cityName = droppownItem.getAttribute('data-string');
-
-    //get all my events
-    let allEvents = getEventData();
-
-    //Return all events if city name all is selected
-    if (cityName == 'All') {
-        displayStats(allEvents);
-        displayEventData(allEvents);
-        document.getElementById('location').innerText = 'All Events';
-
-        return;
-    };
-
-    //filter those events to just the selected city
-    let filteredEvents = allEvents.filter(event => event.city.toLowerCase() == cityName.toLowerCase());
-
-    //display stats for those events
-    displayStats(filteredEvents);
-
-    //change the stats header
-    document.getElementById('location').innerText = cityName;
-
-    //display only those events in the table
-    displayEventData(filteredEvents);
-}
-                </code></pre>
+                <div class="mx-md-3">
+                    <pre class="line-numbers mt-0">
+                                    <code class="language-js">
+                                        function viewFilteredEvents(droppownItem) {
+                //Takes a city name returns fltered events
+            
+                //Get city name from page
+                let cityName = droppownItem.getAttribute('data-string');
+            
+                //get all my events
+                let allEvents = getEventData();
+            
+                //Return all events if city name all is selected
+                if (cityName == 'All') {
+                    displayStats(allEvents);
+                    displayEventData(allEvents);
+                    document.getElementById('location').innerText = 'All Events';
+            
+                    return;
+                };
+            
+                //filter those events to just the selected city
+                let filteredEvents = allEvents.filter(event => event.city.toLowerCase() == cityName.toLowerCase());
+            
+                //display stats for those events
+                displayStats(filteredEvents);
+            
+                //change the stats header
+                document.getElementById('location').innerText = cityName;
+            
+                //display only those events in the table
+                displayEventData(filteredEvents);
+            }
+                                    </code>
+                                </pre>
+                </div>
             </div>
-            <div id="saveNewEvent" class="mt-4">
+            <div id="saveNewEvent" class="pt-3 mt-5">
                 <dl class="row mb-0">
-                    <dt class="col-sm-3">saveNewEvent()</dt>
-                    <dd class="col-sm-9">
-                        <p></p>
+                    <dt class="col-md-3">saveNewEvent</dt>
+                    <dd class="col-md-9">
+                        <p><!--Add Function Description --></p>
                     </dd>
                 </dl>
-                <pre class="line-numbers mt-0"><code class="language-js">
-                    function saveNewEvent() {
-    //Adds new event to local database
-
-    //get the form input values
-    let name = document.getElementById('newEventName').value;
-
-    let city = document.getElementById('newEventCity').value;
-
-    let attendance = parseInt(document.getElementById('newEventAttendance').value);
-    attendance = attendance.toLocaleString();
-
-    let date = document.getElementById('newEventDate').value;
-    date = new Date(date).toLocaleDateString();
-
-    let stateSelect = document.getElementById('newEventState');
-    let selectedIndex = stateSelect.selectedIndex;
-    let state = stateSelect.options[selectedIndex].text;
-
-    //create new event object
-    let newEvent = {
-        event: name,
-        city: city,
-        state: state,
-        attendance: attendance,
-        date: date,
-    };
-
-    //add event to the array of the current events
-    let events = getEventData();
-    events.push(newEvent);
-
-    //then, save the array with the new event
-    localStorage.setItem('nerdNookData', JSON.stringify(events));
-
-    buildDropDown();
-}
-                </code></pre>
+                <div class="mx-md-3">
+                    <pre class="line-numbers mt-0">
+                                    <code class="language-js">
+                                        function saveNewEvent() {
+                //Adds new event to local database
+            
+                //get the form input values
+                let name = document.getElementById('newEventName').value;
+            
+                let city = document.getElementById('newEventCity').value;
+            
+                let attendance = parseInt(document.getElementById('newEventAttendance').value);
+            
+                let date = document.getElementById('newEventDate').value;
+                date = new Date(date).toLocaleDateString();
+            
+                let stateSelect = document.getElementById('newEventState');
+                let selectedIndex = stateSelect.selectedIndex;
+                let state = stateSelect.options[selectedIndex].text;
+            
+                //create new event object
+                let newEvent = {
+                    event: name,
+                    city: city,
+                    state: state,
+                    attendance: attendance,
+                    date: date,
+                    id: generateId(),
+                };
+            
+                //add event to the array of the current events
+                let events = getEventData();
+                events.push(newEvent);
+            
+                //then, save the array with the new event
+                localStorage.setItem('nerdNookData', JSON.stringify(events));
+            
+                buildDropDown();
+            }
+                                    </code>
+                                </pre>
+                </div>
             </div>
-        </section>
+            <div id="generateId" class="pt-3 mt-5">
+                <dl class="row mb-0">
+                    <dt class="col-md-3">generateId</dt>
+                    <dd class="col-md-9">
+                        <p><!--Add Function Description --></p>
+                    </dd>
+                </dl>
+                <div class="mx-md-3">
+                    <pre class="line-numbers mt-0">
+                                    <code class="language-js">
+                                        function generateId() {
+                return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
+                    (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+                );
+            }
+                                    </code>
+                                </pre>
+                </div>
+            </div>
+            <div id="editEvent" class="pt-3 mt-5">
+                <dl class="row mb-0">
+                    <dt class="col-md-3">editEvent</dt>
+                    <dd class="col-md-9">
+                        <p><!--Add Function Description --></p>
+                    </dd>
+                </dl>
+                <div class="mx-md-3">
+                    <pre class="line-numbers mt-0">
+                                    <code class="language-js">
+                                        function editEvent(eventRow) {
+                let eventId = eventRow.getAttribute('data-event');
+            
+                let currentEvents = getEventData();
+            
+                let event = currentEvents.find(event => event.id == eventId);
+            
+                document.getElementById('editId').value = event.id;
+                document.getElementById('editName').value = event.event;
+                document.getElementById('editCity').value = event.city;
+                document.getElementById('editAttendance').value = event.attendance;
+            
+                let eventDate = new Date(event.date);
+                let eventDateString = eventDate.toISOString();
+                let eventDateArray = eventDateString.split('T');
+                let eventDateFormated = eventDateArray[0];
+                document.getElementById('editDate').value = eventDateFormated;
+            
+                let eventStateSelect = document.getElementById('editState');
+                let optionsArray = [...eventStateSelect.options];
+                let index = optionsArray.findIndex(option => option.text == event.state);
+                eventStateSelect.selectedIndex = index;
+            
+                // //for loop to find the options
+                // for (let i = 0; i &lt; eventStateSelect.length; i++) {
+                //     let element = eventStateSelect[i];
+                    
+                //     if (element.state == option.text) {
+                //         eventStateSelect.selectedIndex = i;
+                //     };
+                // };
+            }
+                                    </code>
+                                </pre>
+                </div>
+            </div>
+            <div id="deleteEvent" class="pt-3 mt-5">
+                <dl class="row mb-0">
+                    <dt class="col-md-3">deleteEvent</dt>
+                    <dd class="col-md-9">
+                        <p><!--Add Function Description --></p>
+                    </dd>
+                </dl>
+                <div class="mx-md-3">
+                    <pre class="line-numbers mt-0">
+                                    <code class="language-js">
+                                        function deleteEvent() {
+                let eventId = document.getElementById('editId').value;
+            
+                //get the events in local storage
+                let currentEvents = getEventData();
+            
+                //filter out any event with id
+                let filteredEvents = currentEvents.filter(event => event.id != eventId);
+            
+                //save that array to local storage
+                localStorage.setItem('nerdNookData', JSON.stringify(filteredEvents));
+            
+                //Update stats and events tabel
+                buildDropDown();
+            }
+                                    </code>
+                                </pre>
+                </div>
+            </div>
+            <div id="updateEvent" class="pt-3 mt-5">
+                <dl class="row mb-0">
+                    <dt class="col-md-3">updateEvent</dt>
+                    <dd class="col-md-9">
+                        <p><!--Add Function Description --></p>
+                    </dd>
+                </dl>
+                <div class="mx-md-3">
+                    <pre class="line-numbers mt-0">
+                                    <code class="language-js">
+                                        function updateEvent() {
+            
+                let name = document.getElementById('editName').value;
+            
+                let city = document.getElementById('editCity').value;
+            
+                let attendance = parseInt(document.getElementById('editAttendance').value);
+            
+                let date = document.getElementById('editDate').value;
+                date = new Date(date).toLocaleDateString();
+            
+                let stateSelect = document.getElementById('editState');
+                let selectedIndex = stateSelect.selectedIndex;
+                let state = stateSelect.options[selectedIndex].text;
+            
+                let eventId = document.getElementById('editId').value;
+            
+                //create new event object
+                let newEvent = {
+                    event: name,
+                    city: city,
+                    state: state,
+                    attendance: attendance,
+                    date: date,
+                    id: eventId,
+                };
+            
+                //get my event array
+                let currentEvents = getEventData();
+            
+                //find the location of the old event with this id
+                let index = currentEvents.findIndex(event => event.id == eventId);
+            
+                //replace that event with newId
+                currentEvents[index] = newEvent;
+            
+                //save it in local storage
+                localStorage.setItem('nerdNookData', JSON.stringify(currentEvents));
+            
+                //Update stats & events table
+                buildDropDown();
+            }
+                                    </code>
+                                </pre>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="container-fluid mt-3 footer-main">
+        <div class="row footer-bg-cta">
+            <div class="col">
+                <div class="container py-3 footer-cta text-center">
+                    <a href="https://github.com/brianley99/NerdNook" class="footer-message">Check out the full code!</a>
+                </div>
+            </div>
+        </div>
         <div class="container-xxl">
             <div class="row row-cols-1 row-cols-md-3 gy-3 align-items-center text-center text-light py-3">
                 <div class="col text-md-center">
@@ -820,8 +1007,8 @@
             <td data-id="event">Event Name</td>
             <td data-id="city">City</td>
             <td data-id="state">State</td>
-            <td data-id="attendance">Attendance</td>
-            <td data-id="date">Date</td>
+            <td data-id="attendance" class="text-end">Attendance</td>
+            <td data-id="date"  class="text-end">Date</td>
         </tr>
     </template>
 

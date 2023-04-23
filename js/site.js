@@ -131,7 +131,7 @@ function displayEventData(currentEvents) {
         tableRow.querySelector('[data-id="event"]').textContent = event.event;
         tableRow.querySelector('[data-id="city"]').textContent = event.city;
         tableRow.querySelector('[data-id="state"]').textContent = event.state;
-        tableRow.querySelector('[data-id="attendance"]').textContent = event.attendance;
+        tableRow.querySelector('[data-id="attendance"]').textContent = event.attendance.toLocaleString("en-US");
         tableRow.querySelector('[data-id="date"]').textContent = new Date(event.date).toLocaleDateString();
 
         tableRow.querySelector('tr').setAttribute('data-event', event.id);
@@ -193,10 +193,10 @@ function displayStats(currentEvents) {
     let leastAttendance = document.getElementById('leastAttendance');
 
     //set elements to stats
-    totalAttendance.textContent = stats.total;
-    averageAttendance.textContent = stats.average;
-    mostAttendance.textContent = stats.most;
-    leastAttendance.textContent = stats.least;
+    totalAttendance.textContent = stats.total.toLocaleString("en-US");
+    averageAttendance.textContent = stats.average.toLocaleString("en-US");
+    mostAttendance.textContent = stats.most.toLocaleString("en-US");
+    leastAttendance.textContent = stats.least.toLocaleString("en-US");
 
 }
 
